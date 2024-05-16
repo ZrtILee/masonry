@@ -105,7 +105,7 @@
           </div>
           <div class="_formalLikes_qidvz_6">
             <div class="_leftTime_qidvz_1">
-              <div>{{ `1小时前 · 来自${ item.detail.city || '未知'} · 浏览${ item.detail.viewCount || '未知'}` }}</div>
+              <div>{{ `${beautyTime(item.detail.createTime)} · 来自${ item.detail.city || '未知'} · 浏览${ item.detail.viewCount || '未知'}` }}</div>
             </div>
           </div>
           <div class="_formalLikes_e0kl2_256">
@@ -132,6 +132,7 @@
   </template>
   <script setup>
   import { ref } from 'vue';
+  import beautyTime from '../utils/beautyTime.ts'
   
   const props = defineProps(['item'])
   const levelIcon = ref([

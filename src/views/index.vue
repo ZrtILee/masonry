@@ -1,53 +1,26 @@
 <template>
     <div style="">
-      <h1 class="text-blue-400">Masonry - Initialize in HTML</h1>
-      <div ref="grid" class="grid" style="position: relative;">
-  
-        <MasonryItem v-for="(item, index) in list" :key="index" :item="item"/>
-      </div>
-  
+        <div ref="grid" class="grid" style="position: relative;">
+            <MasonryItem v-for="(item, index) in list" :key="index" :item="item"/>
+        </div>
     </div>
   </template>
   <script setup>
   import { nextTick, onMounted, ref } from 'vue';
-  import positionComputedX from '../masonry.ts'
+  import positionComputedX from '../utils/masonry.ts'
   import MasonryItem from '../components/MasonryItem.vue';
   
   const grid = ref(null)// grid
   const list = ref([])// 列表
   
-    const themeMedia = window.matchMedia("(prefers-color-scheme: light)");
-      themeMedia.addEventListener('change', e => {
-          if (e.matches) {
-              console.log('light')
-              document.documentElement.classList.remove("dark-mode");
-          } else {
-              console.log('dark')
-              document.documentElement.classList.add("dark-mode");
-          }
-      });
-  
-  //     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-  
-  // if (prefersDarkScheme.matches) {
-  //   document.body.classList.add("dark-theme");
-  // } else {
-  //   document.body.classList.remove("dark-theme");
-  // }
   
   onMounted(() => {
-    // fetch('https://mock.presstime.cn/mock/663dc355d59f9a21eb4d690b/example/photos')
     fetch('https://mock.presstime.cn/mock/663dc355d59f9a21eb4d690b/example/meizuData')
       .then((res) => {
         console.log(res)
         res.json().then(ress => {
           let filterRes =ress.data.data.blocks.filter(item=> (item.type == 'content_1' || item.type == 'content_2'))
-          console.log(filterRes)
           list.value = filterRes
-          filterRes.forEach(item=>{
-            console.log(JSON.parse(item.detail.content))
-          })
-          // console.log(list.value.length)
           nextTick(() => {
             positionComputedX(grid.value)
           })
@@ -146,7 +119,7 @@
       // background: var(--fall-b2);
       // color: var(--fall-t3);
       font-size: 13px;
-      transition: background .3s, color .3s;
+      transition: background .5s, color .5s;
       width: 68px;
       height: 32px;
       border-radius: 39px;
@@ -168,7 +141,7 @@
   ._it_title_e0kl2_10 {
     // color: var(--fall-t5);
     color: #FFF;
-    transition: color .3s;
+    transition: color .5s;
     font-size: 16px;
     font-weight: 700;
     margin-top: 12px;
@@ -177,7 +150,7 @@
       font-weight: 400;
       color: #c5c5c5;
       // color: var(--fall-t6);
-      transition: color .3s;
+      transition: color .5s;
       text-overflow: ellipsis;
       overflow: hidden;
       display: -webkit-box;
@@ -211,7 +184,7 @@
       color: #9f9fa6;
       // background-color: var(--fall-b3);
       // color: var(--fall-t7);
-      transition: all .3s;
+      transition: all .5s;
       margin-top: 10px;
       padding: 0 12px 0 8px;
       width: -moz-fit-content;
@@ -232,7 +205,7 @@
   ._formalLikes_qidvz_6 {
       // color: var(--fall-t8);
       color: #818181;
-      transition: color .3s;
+      transition: color .5s;
       display: flex;
       justify-content: space-between;
       line-height: 24px;
@@ -240,7 +213,7 @@
       ._leftTime_qidvz_1 {
         display: flex;
         color: #818181;
-        transition: color .3s;
+        transition: color .5s;
         font-size: 13px;
     }
   }
@@ -272,7 +245,7 @@
         }
         ._comment_e0kl2_314, ._likes_e0kl2_318 {
             margin-left: 5px;
-            transition: color .3s;
+            transition: color .5s;
         }
       }
   }

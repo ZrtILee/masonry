@@ -7,7 +7,7 @@ let resizeListener: EventListener = null// resize监听
 const positionComputedX = (ref: HTMLElement) => {
     grid = ref;// grid
     let gridWidth = grid.clientWidth;// grid宽度
-    let marginB = 30;// 底部间距
+    let marginB = 16;// 底部间距
     let gapX: number;// 间距
 
     for (let i of grid.children as any) {

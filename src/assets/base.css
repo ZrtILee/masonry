@@ -26,13 +26,7 @@
   --bg-masonry: #1d1e21;
   --bg-a1: #313131;
   --border-color: #0d2538;
-}
-.sepia-mode {
-  --color: #433422;
-  --color-secondary: #504231;
-  --bg: #f1e7d0;
-  --bg-secondary: #eae0c9;
-  --border-color: #ded0bf;
+  color-scheme: dark !important;
 }
 
 a {
@@ -47,10 +41,15 @@ a {
   font-weight: normal;
 }
 
+html{
+  /* transition: color 0.5s, background-color 0.5s; */
+  background-color: var(--bg);
+}
+
 body {
   min-height: 100vh;
   color: var(--color);
-  background-color: var(--bg);
+  /* background-color: var(--bg); */
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
