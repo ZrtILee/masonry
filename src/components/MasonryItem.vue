@@ -1,5 +1,5 @@
 <template>
-    <div class="grid-item _item_e0kl2_2" style="background-color: var(--bg-masonry);padding: 24px 24px 8px;">
+    <div v-if="item.detail.pics" class="grid-item _item_e0kl2_2" style="background-color: var(--bg-masonry);padding: 24px 24px 8px;">
           <div class="flex justify-between items-center">
             <div class="flex items-center relative">
               <img :src="item.detail.member.avatar" class="w-[48px] h-[48px] rounded-[50%]" alt="avatar">

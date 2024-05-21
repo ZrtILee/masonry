@@ -15,6 +15,7 @@ const positionComputedX = (ref: HTMLElement) => {
         let index = colsArr.indexOf(min);
         let clientH = i.clientHeight as number;
         i.style.marginBottom = `${marginB}px`;
+        console.log(colsArr)
         colsArr[index] += clientH + marginB;
 
         switch (index) {
